@@ -1,121 +1,177 @@
+:root {
+    --yellow-neon: #e6f600;
+    --purple-neon: purple;
+    --white-neon: #f0f0f0;
+
+    --transition-time: 0.2s;
+}
+
+@font-face{
+    font-family: 'Mi fuente personalizada';
+    src: url(../fonts/Cyberpunks.ttf) format('woff2');    
+}
+
 /* ==========================================================================
-   ESTILOS BASE (NO TOCAR DIRECTAMENTE) 
-   ¡Crea una zona de Media Queries!
+    ESTILOS BASE (NO TOCAR DIRECTAMENTE) 
+    ¡Crea una zona de Media Queries!
    ========================================================================== */
+
+/*========================================
+    GENERAL
+========================================*/
 
 * {
     box-sizing: border-box;
+
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
     min-width: 1200px;
-    background-image: url('https://img.freepik.com/free-vector/network-communications-with-flowing-cyber-dots-design_1048-13962.jpg?semt=ais_hybrid&w=740&q=80');
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('../img/imagen_ciberdick.jpg'); /* https://img.freepik.com/free-vector/network-communications-with-flowing-cyber-dots-design_1048-13962.jpg?semt=ais_hybrid&w=740&q=80 */
+    backdrop-filter: brightness(40%);
+    
+    color: #333;
+    
     background-size: cover;
 }
 
+/*========================================
+    ENCABEZADO
+========================================*/
+
 header {
     background: linear-gradient(45deg, black, rgb(41, 19, 45));
-    color: white;
+    color: var(--white-neon);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    height: 80px; 
+
+    padding: 1em;
+    
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
-    text-shadow: 
-    0 0 5px #fff, 
-    0 0 1px #fff, 
-    0 0 15px #00e6f6, 
-    0 0 30px #00e6f6, 
-    0 0 50px #00e6f6;
-    box-shadow: 2px 2px 20px 5px purple;
-}
 
-@font-face{
-    font-family: 'Mi fuente personalizada';
-    src: url(../fonts/Cyberpunks.ttf) format('woff2');
-    
+    box-shadow: 2px 2px 20px 5px var(--purple-neon);
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 2em;
     font-weight: bold;
+
     text-transform: uppercase;
     letter-spacing: 2px;
+
     border: 10%;
+
+    text-shadow: 
+    0 0 1px var(--white-neon), 
+    0 0 10px var(--yellow-neon), 
+    0 0 20px var(--yellow-neon);
 }
 
 .main-nav ul {
     list-style: none;
+
     display: flex;
     gap: 20px;
 }
 
 .main-nav a {
-    color: white;
+    color: var(--white-neon);
     text-decoration: none;
     font-weight: bold;
+    transition: font-size var(--transition-time);
+
+    text-shadow: 
+    0 0 1px var(--white-neon), 
+    0 0 2px var(--yellow-neon), 
+    0 0 3px var(--yellow-neon);
 }
 
 .main-nav a:hover {
-    color: rgb(218, 199, 236);
+    font-size: 1.1em;
 }
+
+/*========================================
+    MAIN
+========================================*/
 
 main {
     width: 900px;
+
     float: left; /* Técnica antigua para poner elementos lado a lado */
-    margin: 30px 0 30px 50px;
-    color: rgb(233, 232, 232);
+
+    color: var(--white-neon);
     padding: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    margin: 30px 0 30px 50px;
+    box-shadow:
+    0 0 1px var(--white-neon), 
+    0 0 2px var(--white-neon), 
+    0 0 5px var(--purple-neon), 
+    0 0 10px var(--purple-neon), 
+    0 0 20px var(--purple-neon);
+
     border-radius: 2%;
     border: 1px solid;
 }
 
-
 main h1{
-    color: white;
-    text-shadow: 
-    0 0 2px #fff, 
-    0 0 5px #fff, 
-    0 0 10px #00e6f6, 
-    0 0 20px #00e6f6, 
-    0 0 40px #00e6f6;
+    color: var(--white-neon);
+
+    text-transform: uppercase;
+
     text-shadow: 2px 2px 20px 2px;
+    text-shadow: 
+    0 0 2px var(--white-neon), 
+    0 0 3px var(--yellow-neon), 
+    0 0 5px var(--yellow-neon);
 }
 
 main img{
-    margin-top: 10px;
-    box-shadow: 2px 2px 20px 2px rgb(33, 32, 33);
+    margin-top: 20px;
+    box-shadow: 0 0 10px 1px var(--white-neon);
 }
+
+main, aside {
+    background: linear-gradient(95deg, rgb(10, 10, 20, 0.8), rgb(25, 15, 25, 0.8));
+    color: var(--white-neon);
+}
+
+/*========================================
+    ANUNCIOS
+========================================*/
 
 aside {
-    width: 300px;
     float: right;
-    margin: 30px 50px 30px 0;
-    background: linear-gradient(95deg, rgb(10, 10, 20), rgb(25, 15, 25));
-    color: white;
-    text-shadow: 
-    0 0 1px #fff, 
-    0 0 5px #fff;
-    padding: 20px;
-    border-radius: 20px;
-    border: 1px solid;
-    border-color: white;
-}
 
+    margin: 30px 50px 30px 0;
+
+    width: 300px;
+    padding: 20px;
+    
+
+    border: 1px solid var(--white-neon);
+    border-radius: 20px;
+
+    box-shadow:
+    0 0 1px var(--white-neon), 
+    0 0 2px var(--white-neon), 
+    0 0 5px var(--purple-neon), 
+    0 0 10px var(--purple-neon), 
+    0 0 20px var(--purple-neon);
+}
 
 aside::after {
     content: "";
     display: table;
     clear: both;
 }
-
 
 .main-article p {
     line-height: 1.6;
@@ -128,32 +184,62 @@ aside::after {
 }
 
 aside h2 {
+    border-bottom: 2px solid var(--white-neon);
+
     margin-bottom: 15px;
-    border-bottom: 2px solid white;
     padding-bottom: 5px;
 }
 
 .anuncio {
-    background: rgba(255,255,255,0.2);
+    transition: transform, background var(--transition-time);
+
+    text-align: center;
+
     margin-top: 15px;
     padding: 15px;
-    text-align: center;
-    border-radius: 3px;
+
+    border-radius: 16px;
+    border: 1px solid var(--white-neon);
+
+    background: rgba(92, 2, 165, 0.219);
+
+    box-shadow: 0 0 5px 1px var(--purple-neon);
 }
 
+.anuncio:hover {
+    cursor: pointer;
+
+    background: rgba(189, 46, 255, 0.219);
+
+    transform: scale(1.03);
+}
+
+/*========================================
+    PIE DE PÁGINA
+========================================*/
 
 footer {
     clear: both; /* Nos aseguramos de que el footer se quede abajo del todo */
+
     background: linear-gradient(45deg, black, rgb(41, 19, 45));
-    color: #00ffff;
+    color: var(--yellow-neon);
+    
     display: flex;
     padding: 40px;
     width: 1200px;
+    
     margin: 0 auto;
+    
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;    
     border-top: 2px solid #ff00ff;
-    box-shadow: 0px 0px 40px 0px purple;
+
+    box-shadow:
+    0 0 1px var(--white-neon), 
+    0 0 2px var(--white-neon), 
+    0 0 5px var(--purple-neon), 
+    0 0 10px var(--purple-neon), 
+    0 0 20px var(--purple-neon);
 }
 
 .footer-col {
@@ -179,10 +265,11 @@ footer {
 h3::before {
     content: '🤖 '
 }
-    
+
+
 /* ==========================================================================
     67  MEDIA QUERIES
-   Añade a partir de aquí tus reglas @media para "rescatar" la web.
+    Añade a partir de aquí tus reglas @media para "rescatar" la web.
    ========================================================================== */
 
 /* Móviles */
@@ -244,6 +331,7 @@ h3::before {
     }
 
     header .main-nav ul{
+        margin-top: 10px;
         justify-content: center;
     }
 
