@@ -1,3 +1,5 @@
+/* http://127.0.0.1:5500/index.html */
+
 :root {
     --yellow-neon: #e6f600;
     --purple-neon: purple;
@@ -8,9 +10,14 @@
 
 @font-face{
     font-family: 'Mi fuente personalizada';
-    src: url(../fonts/Cyberpunks.ttf) format('woff2');    
+    src: url(../fonts/Cyberpunks.ttf) format('woff2');
 }
-
+@font-face {
+    font-family: 'OrbitronCustom';
+    src: url('../fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
 /* ==========================================================================
     ESTILOS BASE (NO TOCAR DIRECTAMENTE) 
     ¡Crea una zona de Media Queries!
@@ -46,7 +53,6 @@ body {
 header {
     background: linear-gradient(45deg, black, rgb(41, 19, 45));
     color: var(--white-neon);
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,6 +63,11 @@ header {
     border-bottom-right-radius: 16px;
 
     box-shadow: 2px 2px 20px 5px var(--purple-neon);
+    transition: box-shadow var(--transition-time);
+}
+
+header:hover {
+    box-shadow: 0 0 10px 15px var(--purple-neon);
 }
 
 .logo {
@@ -181,6 +192,14 @@ aside::after {
 .responsive-img {
     margin-bottom: 20px;
     border-radius: 16px;
+    overflow: hidden;
+    object-fit: cover;
+    transition: transform var(--transition-time) ease-in-out;
+}
+
+.responsive-img:hover {
+    object-fit: cover;
+    transform: scale(0.98);
 }
 
 aside h2 {
@@ -226,7 +245,8 @@ footer {
     
     display: flex;
     padding: 40px;
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     
     margin: 0 auto;
     
@@ -240,6 +260,9 @@ footer {
     0 0 5px var(--purple-neon), 
     0 0 10px var(--purple-neon), 
     0 0 20px var(--purple-neon);
+    
+    transition: box-shadow var(--transition-time);
+    font-family: 'OrbitronCustom', sans-serif;
 }
 
 .footer-col {
@@ -262,6 +285,20 @@ footer {
     color: #bdc3c7;
 }
 
+footer:hover {
+    box-shadow: 0 0 10px 15px var(--purple-neon);
+}
+
+footer p:hover{
+    cursor: pointer;
+    text-shadow: 2px 2px 20px 2px;
+    text-decoration: underline;
+    text-shadow: 
+    0 0 2px var(--white-neon), 
+    0 0 3px var(--purple-neon), 
+    0 0 5px var(--yellow-neon);
+}
+
 h3::before {
     content: '🤖 '
 }
@@ -274,6 +311,10 @@ h3::before {
 
 /* Móviles */
 @media screen and (max-width: 768px){
+    body {
+        min-width: 100%;
+    }
+
     /* Main article */
     .main-article {
         display: flex;
@@ -289,7 +330,8 @@ h3::before {
     main{
         float: none;
         margin: 20px auto;
-        border-radius: 10%;
+        width: 100%;
+        max-width: 100%;
     }
 
 
@@ -315,6 +357,15 @@ h3::before {
     header .main-nav ul{
         justify-content: center;
     }
+
+    footer {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .responsive-img {
+        width: 80%;
+    }
 }
 
 
@@ -322,6 +373,7 @@ h3::before {
 @media screen and (min-width:768px) and (max-width:1300px){
     body{
         font-size: 14px;
+        min-width: 80%;
     }
     
     /* Header */
@@ -351,6 +403,12 @@ h3::before {
     main{
         float: none;
         margin: 20px auto;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .responsive-img {
+        width: 80%;
     }
 
 
@@ -360,5 +418,11 @@ h3::before {
         width: 40%;
         margin: 0 auto;
         margin-bottom: 25px;
+    }
+
+    footer {
+        max-width: 100%;
+        min-width: 100%;
+        width: 100%;
     }
 }
